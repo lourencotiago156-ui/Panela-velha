@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panela Velha - Empório, Bar e Restaurante</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
+    
+    header { background-color: #8b0000; color: white; text-align: center; padding: 20px 10px; }
+    header h1 { font-size: 2.2rem; font-weight: bold; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+
+    .hero { position: relative; text-align: center; color: white; background: #000; }
+    .hero img { width: 100%; max-height: 400px; object-fit: cover; opacity: 0.75; }
+    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; }
+    .hero-text h2 { font-size: 2rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+
+    .btn-whatsapp { display: inline-block; background-color: #25d366; color: white; padding: 14px 28px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 1.2rem; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
+    .btn-whatsapp:hover { background-color: #1eb954; transform: scale(1.05); }
+
+    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    .section-title { text-align: center; font-size: 1.8rem; color: #8b0000; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+    .card img { width: 100%; height: 220px; object-fit: cover; }
+    .card-body { padding: 20px; }
+    .card-body h3 { font-size: 1.3rem; margin-bottom: 8px; color: #222; }
+    .card-body p { color: #666; font-size: 0.95rem; }
+
+    .info-box { background: white; border-left: 5px solid #8b0000; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 40px; }
+    .info-box p { margin-bottom: 10px; font-size: 1.05rem; }
+
+    footer { background: #222; color: #ccc; text-align: center; padding: 20px; margin-top: 50px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Panela Velha</h1>
+    <p>Empório, Bar e Restaurante em Bauru - SP</p>
+  </header>
+
+  <div class="hero">
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMw443O1_dGzZ9q4N7v8E9rQ52_X1p_e4k-p-p=s1360-w768" alt="Fachada do Panela Velha">
+    <div class="hero-text">
+      <h2>Comida Caseira & O Melhor Bar da Região</h2>
+      <a href="https://wa.me/5514998889323?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." class="btn-whatsapp" target="_blank">📱 Fazer Pedido no WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Nossas Especialidades</h2>
+    
+    <div class="grid">
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipN3d19k9Nf6O6O_19f_8k0n2O1P0M_N_e4k-p-p=s1360-w768" alt="Torresmo com Mandioca">
+        <div class="card-body">
+          <h3>Porções Especiais</h3>
+          <p>Torresmo crocantíssimo acompanhado de mandioca macia, limão e temperos da casa.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipP3d19k9Nf6O6O_19f_8k0n2O1P0M_N_e4k-p-p=s1360-w768" alt="Mandioca Frita com Molho">
+        <div class="card-body">
+          <h3>Porção de Mandioca</h3>
+          <p>Mandioca frita bem douradinha com nosso molho especial verde da casa.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipQ3d19k9Nf6O6O_19f_8k0n2O1P0M_N_e4k-p-p=s1360-w768" alt="Espetinhos e Acompanhamentos">
+        <div class="card-body">
+          <h3>Espetinhos & Carnes</h3>
+          <p>Espetinhos variados assados na hora, acompañados de farofa, molho e mandioca.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2 style="color: #8b0000; margin-bottom: 15px;">Venha nos Visitar!</h2>
+      <p>📍 <strong>Endereço:</strong> R. Luiz Aleixo, 749 - Vila Cardia, Bauru - SP</p>
+      <p>🕒 <strong>Almoço:</strong> Servimos refeições no local e marmitas (Fecha às 14:30)</p>
+      <p>📞 <strong>WhatsApp / Telefone:</strong> (14) 99888-9323</p>
+      <a href="https://maps.google.com/?q=Panela+Velha+Bauru" target="_blank" class="btn-whatsapp" style="background-color: #8b0000; font-size: 1rem; padding: 10px 20px;">📍 Como Chegar pelo Google Maps</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; Panela Velha - Empório, Bar e Restaurante. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
