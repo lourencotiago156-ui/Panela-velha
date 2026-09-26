@@ -3,94 +3,467 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panela Velha - Empório, Bar e Restaurante</title>
+  <title>Panela Velha - Empório, Bar & Restaurante</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
-    
-    header { background-color: #8b0000; color: white; text-align: center; padding: 20px 10px; }
-    header h1 { font-size: 2.2rem; font-weight: bold; }
-    header p { font-size: 1.1rem; opacity: 0.9; }
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
-    .hero { position: relative; text-align: center; color: white; background: #000; }
-    .hero img { width: 100%; max-height: 400px; object-fit: cover; opacity: 0.75; }
-    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; }
-    .hero-text h2 { font-size: 2rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+    :root {
+      --bg-dark: #0f0f11;
+      --card-bg: #18181c;
+      --accent-gold: #f39c12;
+      --accent-red: #d32f2f;
+      --text-main: #ffffff;
+      --text-sub: #a0a0ab;
+      --border-color: #27272a;
+    }
 
-    .btn-whatsapp { display: inline-block; background-color: #25d366; color: white; padding: 14px 28px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 1.2rem; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
-    .btn-whatsapp:hover { background-color: #1eb954; transform: scale(1.05); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-    .section-title { text-align: center; font-size: 1.8rem; color: #8b0000; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
-    .card img { width: 100%; height: 220px; object-fit: cover; }
-    .card-body { padding: 20px; }
-    .card-body h3 { font-size: 1.3rem; margin-bottom: 8px; color: #222; }
-    .card-body p { color: #666; font-size: 0.95rem; }
+    /* Navbar Fixa */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 15, 17, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    .info-box { background: white; border-left: 5px solid #8b0000; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 40px; }
-    .info-box p { margin-bottom: 10px; font-size: 1.05rem; }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    footer { background: #222; color: #ccc; text-align: center; padding: 20px; margin-top: 50px; font-size: 0.9rem; }
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: linear-gradient(180deg, rgba(15,15,17,0.6) 0%, rgba(15,15,17,1) 100%),
+                  url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(243, 156, 18, 0.15);
+      color: var(--accent-gold);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border: 1px solid rgba(243, 156, 18, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #d4d4d8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-sub);
+      margin-bottom: 35px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+      transition: 0.3s transform;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border-color);
+      transition: 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: #27272a;
+    }
+
+    /* Seções Genéricas */
+    section {
+      padding: 100px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-sub);
+      font-size: 1.1rem;
+    }
+
+    /* Grid do Cardápio */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-gold);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .menu-card-body {
+      padding: 25px;
+    }
+
+    .tag {
+      background: rgba(211, 47, 47, 0.2);
+      color: #ff6b6b;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .menu-card-body h3 {
+      font-size: 1.4rem;
+      margin: 12px 0 8px;
+    }
+
+    .menu-card-body p {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .menu-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 15px;
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+
+    /* Seção de Horários e Infos */
+    .info-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .info-box {
+      background: var(--card-bg);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    .info-box i {
+      font-size: 2.5rem;
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+    }
+
+    .info-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hours-list {
+      list-style: none;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-sub);
+    }
+
+    .hours-list li strong {
+      color: white;
+    }
+
+    footer {
+      background: #09090b;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 5%;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Panela Velha</h1>
-    <p>Empório, Bar e Restaurante em Bauru - SP</p>
-  </header>
+  <!-- Menu Superior -->
+  <nav>
+    <div class="logo">
+      <i class="fa-solid fa-utensils"></i> PANELA VELHA
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#cardapio">Especialidades</a></li>
+      <li><a href="#horarios">Horários</a></li>
+      <li><a href="#localizacao">Onde Estamos</a></li>
+    </ul>
+  </nav>
 
-  <div class="hero">
-    <img src="https://lh3.googleusercontent.com/p/AF1QipMw443O1_dGzZ9q4N7v8E9rQ52_X1p_e4k-p-p=s1360-w768" alt="Fachada do Panela Velha">
-    <div class="hero-text">
-      <h2>Comida Caseira & O Melhor Bar da Região</h2>
-      <a href="https://wa.me/5514998889323?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." class="btn-whatsapp" target="_blank">📱 Fazer Pedido no WhatsApp</a>
+  <!-- Banner Principal -->
+  <div class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="badge">🔥 Bauru - SP • Nota 4.7 no Google</span>
+      <h1>Empório, Bar & Restaurante Panela Velha</h1>
+      <p>A verdadeira tradição da comida caseira, porções de bar crocantes e espetinhos preparados na hora com o carinho que você merece.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5514998889323?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn-primary">
+          <i class="fa-brands fa-whatsapp"></i> Fazer Pedido no WhatsApp
+        </a>
+        <a href="#cardapio" class="btn-secondary"> Ver Cardápio</a>
+      </div>
     </div>
   </div>
 
-  <div class="container">
-    <h2 class="section-title">Nossas Especialidades</h2>
-    
-    <div class="grid">
-      <div class="card">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipN3d19k9Nf6O6O_19f_8k0n2O1P0M_N_e4k-p-p=s1360-w768" alt="Torresmo com Mandioca">
-        <div class="card-body">
-          <h3>Porções Especiais</h3>
-          <p>Torresmo crocantíssimo acompanhado de mandioca macia, limão e temperos da casa.</p>
+  <!-- Seção de Cardápio / Especialidades -->
+  <section id="cardapio">
+    <div class="section-header">
+      <h2>Nossas Especialidades</h2>
+      <p>Role para conhecer os pratos e porções preferidos dos nossos clientes</p>
+    </div>
+
+    <div class="menu-grid">
+      <!-- Prato 1 -->
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Torresmo com Mandioca">
+        <div class="menu-card-body">
+          <span class="tag">Mais Pedido</span>
+          <h3>Torresmo Pururuca com Mandioca</h3>
+          <p>Porção farta de torresmo crocante, servido com mandioca bem macia por dentro, fatias de limão e pimenta especial da casa.</p>
+          <div class="menu-footer">
+            <span class="price">Porção de Bar</span>
+            <i class="fa-solid fa-fire" style="color: var(--accent-gold)"></i>
+          </div>
         </div>
       </div>
 
-      <div class="card">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipP3d19k9Nf6O6O_19f_8k0n2O1P0M_N_e4k-p-p=s1360-w768" alt="Mandioca Frita com Molho">
-        <div class="card-body">
-          <h3>Porção de Mandioca</h3>
-          <p>Mandioca frita bem douradinha com nosso molho especial verde da casa.</p>
+      <!-- Prato 2 -->
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=800&q=80" alt="Mandioca Frita Especial">
+        <div class="menu-card-body">
+          <span class="tag">Especial do Chef</span>
+          <h3>Mandioca Frita & Molho Verde</h3>
+          <p>Mandioca frita na hora, sequinha e dourada, acompanhada pelo famoso molho verde artesanal do Panela Velha.</p>
+          <div class="menu-footer">
+            <span class="price">Petisco Tradicional</span>
+            <i class="fa-solid fa-star" style="color: var(--accent-gold)"></i>
+          </div>
         </div>
       </div>
 
-      <div class="card">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipQ3d19k9Nf6O6O_19f_8k0n2O1P0M_N_e4k-p-p=s1360-w768" alt="Espetinhos e Acompanhamentos">
-        <div class="card-body">
-          <h3>Espetinhos & Carnes</h3>
-          <p>Espetinhos variados assados na hora, acompañados de farofa, molho e mandioca.</p>
+      <!-- Prato 3 -->
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=800&q=80" alt="Espetinhos Assados">
+        <div class="menu-card-body">
+          <span class="tag">Assados na Hora</span>
+          <h3>Espetinhos & Farofa Temperada</h3>
+          <p>Garantia de carne suculenta assada na brasa, servida com farofa bem temperada, vinagrete e mandioca cozida.</p>
+          <div class="menu-footer">
+            <span class="price">Espetaria</span>
+            <i class="fa-solid fa-drumstick-bite" style="color: var(--accent-gold)"></i>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="info-box">
-      <h2 style="color: #8b0000; margin-bottom: 15px;">Venha nos Visitar!</h2>
-      <p>📍 <strong>Endereço:</strong> R. Luiz Aleixo, 749 - Vila Cardia, Bauru - SP</p>
-      <p>🕒 <strong>Almoço:</strong> Servimos refeições no local e marmitas (Fecha às 14:30)</p>
-      <p>📞 <strong>WhatsApp / Telefone:</strong> (14) 99888-9323</p>
-      <a href="https://maps.google.com/?q=Panela+Velha+Bauru" target="_blank" class="btn-whatsapp" style="background-color: #8b0000; font-size: 1rem; padding: 10px 20px;">📍 Como Chegar pelo Google Maps</a>
+  <!-- Seção de Horários e Funcionamento -->
+  <section id="horarios" style="background: rgba(24, 24, 28, 0.4); max-width: 100%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="section-header">
+        <h2>Horário de Funcionamento & Atendimento</h2>
+        <p>Estamos prontos para te atender no almoço e no happy hour!</p>
+      </div>
+
+      <div class="info-container">
+        <!-- Box Horários -->
+        <div class="info-box">
+          <i class="fa-regular fa-clock"></i>
+          3 Horários do Restaurante
+          <ul class="hours-list">
+            <li><span>Almoço Presencial (Buffet):</span> <strong>11:00 às 14:30</strong></li>
+            <li><span>Marmitas & Delivery:</span> <strong>11:00 às 14:30</strong></li>
+            <li><span>Bar, Porções & Espetinhos:</span> <strong>Aberto à Noite</strong></li>
+            <li><span>Domingos & Feriados:</span> <strong>Consulte no WhatsApp</strong></li>
+          </ul>
+        </div>
+
+        <!-- Box Serviços -->
+        <div class="info-box">
+          <i class="fa-solid fa-concierge-bell"></i>
+          3 O que Oferecemos
+          <ul class="hours-list">
+            <li><span>Refeições no Local:</span> <strong>Ambiente Climatizado</strong></li>
+            <li><span>Marmitas Caprichadas:</span> <strong>Retirada e Entrega</strong></li>
+            <li><span>Empório Artesanal:</span> <strong>Méis e Produtos Locais</strong></li>
+            <li><span>Cerveja Trincando:</span> <strong>Diversas Marcas</strong></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Seção de Localização -->
+  <section id="localizacao">
+    <div class="section-header">
+      <h2>Onde Estamos</h2>
+      <p>Venha nos fazer uma visita na Vila Cardia em Bauru - SP</p>
+    </div>
+
+    <div class="info-container">
+      <div class="info-box" style="display: flex; flex-direction: column; justify-content: center;">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Panela Velha Bauru</h3>
+        <p style="color: var(--text-sub); margin-bottom: 15px;">
+          📍 <strong>Endereço:</strong> R. Luiz Aleixo, 749 - Vila Cardia, Bauru - SP<br>
+          📞 <strong>WhatsApp:</strong> (14) 99888-9323
+        </p>
+        <a href="https://maps.google.com/?q=Panela+Velha+Bauru" target="_blank" class="btn-primary" style="background: var(--accent-red); justify-content: center;">
+          <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps
+        </a>
+      </div>
+
+      <div class="info-box" style="padding: 10px; overflow: hidden;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.6276854125883!2d-49.0598822!3d-22.3299778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce83569918231d%3A0x4ad58c5c52556699!2sR.%20Luiz%20Aleixo%2C%20749%20-%20Vila%20Cardia%2C%20Bauru%20-%20SP%2C%2017013-590!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+          width="100%" 
+          height="300" 
+          style="border:0; border-radius: 12px;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; Panela Velha - Empório, Bar e Restaurante. Todos os direitos reservados.</p>
+    <p>&copy; 2026 Panela Velha - Empório, Bar e Restaurante • Desenvolvido com excelência.</p>
   </footer>
 
 </body>
